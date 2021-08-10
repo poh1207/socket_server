@@ -10,7 +10,7 @@
 #include <arpa/inet.h>
 
 #define BUF_LEN 128
-#define port 9000
+#define port 9001
 
 int main()
 {
@@ -49,7 +49,7 @@ int main()
     }
 
 
-    memset(buffer, 0x00, sizeof(buffer));
+    memset(buffer, 0, sizeof(buffer));
     len = sizeof(client_addr);
     printf("Server : wating connection request.\n");
 
@@ -66,16 +66,21 @@ int main()
         inet_ntop(AF_INET, &client_addr.sin_addr.s_addr, temp, sizeof(temp));
         printf("Server: %s client connect.\n", temp);
       
+        char message[30];
+        int messageLenght = strlen(message);
+
         while (1)
         {
-            recv(client_fd, (char*)buffer, BUF_LEN, 0);
+            recv(client_fd, buffer, BUF_LEN, 0);
             printf("%s\n", buffer);
 
-            send(client_fd, "im server", 20, 0); // 1
+            printf("enter :");
+            scanf("%s", &message);
+
+            send(client_fd, message , messageLenght , 0); 
 
         }
 
-            send(client_fd, "test test test", 0xff, 0); // 1
        
         msg_size = recv(client_fd, (char*)buffer, BUF_LEN, 0);
         send(client_fd, (char*)buffer, msg_size, 0);
