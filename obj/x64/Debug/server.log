@@ -1,16 +1,18 @@
-﻿  원격 프로젝트 디렉터리를 정리하는 중
-  소스의 유효성을 검사하는 중
+﻿  소스의 유효성을 검사하는 중
   소스를 '192.168.10.188'(으)로 원격으로 복사하는 중
   아키텍처의 유효성을 검사하는 중
   아키텍처의 유효성을 검사하는 중
   원격 빌드를 시작하는 중
   소스를 컴파일하는 중:
   server.c
-C:\Users\onnet\source\repos\server\server\server.c(29,36): warning : conversion to ‘uint16_t’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\onnet\source\repos\server\server\server.c(29,36): warning :      serv_addr.sin_port = htons(atoi(argv[1]));
-C:\Users\onnet\source\repos\server\server\server.c(29,36): warning :                                     ^
-C:\Users\onnet\source\repos\server\server\server.c(41,10): warning : unused variable ‘message’ [-Wunused-variable]
-C:\Users\onnet\source\repos\server\server\server.c(41,10): warning :      char message[] = "hello client";
-C:\Users\onnet\source\repos\server\server\server.c(41,10): warning :           ^
+C:\Users\onnet\source\repos\server\server\server.c(80,24): warning : conversion to ‘int’ from ‘ssize_t’ may alter its value [-Wconversion]
+C:\Users\onnet\source\repos\server\server\server.c(80,24): warning :          msg_size = recv(client_fd, (char*)buffer, BUF_LEN, 0);
+C:\Users\onnet\source\repos\server\server\server.c(80,24): warning :                         ^
+C:\Users\onnet\source\repos\server\server\server.c(81,9): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+C:\Users\onnet\source\repos\server\server\server.c(81,9): warning :          send(client_fd, (char*)buffer, msg_size, 0);
+C:\Users\onnet\source\repos\server\server\server.c(81,9): warning :          ^
+C:\Users\onnet\source\repos\server\server\server.c(22,10): warning : unused variable ‘test’ [-Wunused-variable]
+C:\Users\onnet\source\repos\server\server\server.c(22,10): warning :      char test[20];
+C:\Users\onnet\source\repos\server\server\server.c(22,10): warning :           ^
   개체를 연결하는 중
   server.vcxproj -> C:\Users\onnet\source\repos\server\server\bin\x64\Debug\server.out
